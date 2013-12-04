@@ -1,0 +1,20 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: aziz_arts_development
+  pool: 5
+
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: aziz_arts_test
+  pool: 5
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: aziz_arts_production
+  pool: 5
