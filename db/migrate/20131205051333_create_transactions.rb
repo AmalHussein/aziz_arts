@@ -3,7 +3,7 @@ class CreateTransactions < ActiveRecord::Migration
     create_table :transactions do |t|
       t.text :confirmation
       t.datetime :purchase_date
-      t.decimal :price
+      t.decimal :total_price
 
       t.timestamps
     end
