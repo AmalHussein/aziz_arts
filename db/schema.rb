@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204235948) do
+ActiveRecord::Schema.define(version: 20131205051758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "line_items", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
+  add_index "line_items", ["transaction_id"], name: "index_line_items_on_transaction_id", using: :btree
+  add_index "line_items", ["user_id"], name: "index_line_items_on_user_id", using: :btree
 
   create_table "products", force: true do |t|
     t.text     "kind"
@@ -25,6 +37,14 @@ ActiveRecord::Schema.define(version: 20131204235948) do
     t.integer  "quantity"
     t.text     "tagline"
     t.text     "image",                               default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", force: true do |t|
+    t.text     "confirmation"
+    t.datetime "purchase_date"
+    t.decimal  "total_price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
