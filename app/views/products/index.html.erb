@@ -3,7 +3,7 @@
 <%=product.kind %>  <br/>
 	<%=product.description %> <br/>
 	<%=product.artist %> <br/>
-	<%=product.price %> <br/>
+	<%= number_to_currency product.price, locale: :us %> <br/>
 	<%=product.quantity %> <br/>
 	<%=product.tagline %> <br/>
 <img src="<%=product.image.first %>">	<br/>
