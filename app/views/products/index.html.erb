@@ -1,5 +1,6 @@
 <% @products.each do |product| %>
 <%=link_to product.name, product_path(product.id) %><br/>
+<%= button_to "Add to cart", add_product_to_cart_path(product) %>
 <%=product.kind %>  <br/>
 	<%=product.description %> <br/>
 	<%=product.artist %> <br/>
